@@ -58,6 +58,7 @@ class GenteelMonochromeGlossary
          * trigger the creation of a custom post type
          * */
         add_action('init', array($this, 'custom_post_type'));
+        add_action('admin_menu', array($this, 'add_menu'));
     }
 
     function activate()
@@ -94,6 +95,14 @@ class GenteelMonochromeGlossary
 
             register_post_type('lgm_glossary_item', ['public' => true, 'label' => 'Monochrome Glossary Items']);
         }
+    }
+
+    function add_menu()
+    {
+
+        add_menu_page('Monochrome Glossary', 'Monochrome Glossary', 'manage_options', 'genteel-monochrome-glossary');
+        add_submenu_page('genteel-monochrome-glossary', 'Settings', 'Settings', 'manage_options', 'genteel-monochrome-glossary');
+        add_submenu_page('genteel-monochrome-glossary', 'User Guide', 'User Guide', 'manage_options', 'genteel-monochrome-glossary/user-guide');
     }
 }
 
