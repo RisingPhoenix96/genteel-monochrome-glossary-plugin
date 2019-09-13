@@ -77,8 +77,7 @@ class GenteelMonochromeGlossary
     {
 
         // Flush rewrite rules (make WordPress aware of the deactivation of the custom post type)
-
-
+        flush_rewrite_rules();
     }
 
     function uninstall()
