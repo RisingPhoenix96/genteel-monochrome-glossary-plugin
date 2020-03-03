@@ -1,27 +1,16 @@
 <?php
 
 /**
- * Script is triggered when the user deletes/uninstalls the plugin
+ * Script is triggered when the user uninstalls the plugin
  */
 
 if (!defined('WP_UNISTALL_PLUGIN')) {
-
+    /**
+     * Immediately end the script's execution if the WP_UNINSTALL_PLUGIN constant is not defined by WordPress.
+     * This prevents unwanted uninstallation/deletion of the plugin.
+     */
     die;
 }
-
-// Clear database storage
-/*$args = array(
-
-    'post_type' => 'lgm_glossary_item',
-    'numberposts' => -1,
-
-);
-$posts = get_posts($args);
-
-foreach ($posts as $post) {
-
-    wp_delete_post($post->ID, true);
-}*/
 
 /**
  * Alternative method of deleting database storage using wpdb
