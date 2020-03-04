@@ -66,7 +66,7 @@ class GenteelMonochromeGlossary
          * If no custom post type named 'lgm_monochrome_glossary_item' exists
          * then create it using WordPress' register_post_type() method.
          */
-        if (!post_type_exists('lgm_monochrome_glossary_item')) {
+        if (!post_type_exists('lgm_glossary_item')) {
 
             register_post_type('lgm_glossary_item', ['public' => true, 'label' => 'Monochrome Glossary Items']);
         }
