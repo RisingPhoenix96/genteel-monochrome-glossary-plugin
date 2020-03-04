@@ -105,5 +105,3 @@ register_activation_hook(__FILE__, array($glossary, 'activate'));
  * This deactivates the plugin by de-registering the custom post type.
  */
 register_deactivation_hook(__FILE__, array($glossary, 'deactivate'));
-
-// Uninstall plugin
