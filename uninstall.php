@@ -13,16 +13,24 @@ if (!defined('WP_UNISTALL_PLUGIN')) {
 }
 
 /**
- * Manually remove all plugin data from tables using the $wpdb object.
- * Using $wpdb allows me to run SQL queries on the database.
+ * Fetch all posts with the defined glossary item custom post type.
+ * Setting numberposts to -1 fetches all posts.
+ * Store all posts and post data in the $glossary variable as an array.
  */
-global $wpdb;
+$glossary = get_posts([
+    'post_type' => 'lgm_glossary_item',
+    'numberposts' => -1,
+]);
 
-// Delete all posts that have our defined glossary item post type.
-$wpdb->query("DELETE FROM wp_posts WHERE post_type = 'lgm_glossary_item'");
-
-// Delete all post metadata that have a post IDs that do not exist in the wp_posts table.
-$wpdb->query("DELETE FROM wp_postmeta WHERE post_id NOT IN (SELECT id FROM wp_posts)");
-
-// Delete all post relationships that have object IDs that do not exist in the wp_posts table.
-$wpdb->query("DELETE FROM wp_term_relationships WHERE object_id NOT IN (SELECT id FROM wp_posts)");
+/**
+ * Loop through all items in the array using PHP's foreach loop.
+ */
+foreach ($glossary as $term) {
+    /**
+     * For each post in the array, run the wp_delete_post() function.
+     * This delete the current post. The post's ID is required for this to work.
+     * wp_delete_post() also removes the post's data from other tables in the database.
+     * The parameter 'true' tells WordPress to bypass the trash and fully remove the post from the database.
+     */
+    wp_delete_post($term->ID, true);
+}
