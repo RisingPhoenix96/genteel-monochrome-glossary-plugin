@@ -4,7 +4,7 @@
  * Plugin Name: Genteel Monochome Glossary
  * Plugin URI: https://github.com/RisingPhoenix96/genteel-monochrome-glossary-plugin
  * Description: A glossary page plugin for the Genteel Monochrome theme.
- * Version: 1.1
+ * Version: 1.1.1
  * Author: LGM
  * Author URI: https://lgm.design/about/
  * Text Domain: /
