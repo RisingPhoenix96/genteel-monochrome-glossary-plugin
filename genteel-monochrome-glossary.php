@@ -57,6 +57,7 @@ class GenteelMonochromeGlossary
          * Rewrite rules determine the full URL path to specific files.
          * When the plugin is deactivated, this will also deactivate the custom post type and the URL's related to these post types need to be removed.
          */
+        unregister_post_type('lgm_glossary_item');
         flush_rewrite_rules();
     }
 
